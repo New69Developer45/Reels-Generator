@@ -24,21 +24,20 @@
         }
 
         .container {
-            width: 350px;
-            height: 620px;
+            width: 100%; /* Changed from 350px */
+            height: 100%; /* Changed from 620px */
             background: #006600;
-            border-radius: 20px;
-            padding: 40px 30px;
+            padding: 80px 40px; /* Increased padding */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-around; /* Changed from center */
             position: relative;
-            box-shadow: 0 0 30px rgba(255, 255, 0, 0.3);
+            /* Removed fixed border-radius and box-shadow */
         }
 
         .question-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px; /* Increased margin */
             opacity: 1;
             transform: translateY(0);
             transition: all 0.5s ease;
@@ -52,12 +51,12 @@
         .subject-badge {
             background: #ffff00;
             color: #000000;
-            padding: 8px 20px;
+            padding: 12px 30px; /* Increased padding */
             border-radius: 25px;
-            font-weight: 600;
-            font-size: 14px;
+            font-weight: 700; /* Increased font-weight */
+            font-size: 24px; /* Increased font-size */
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 25px; /* Increased margin */
         }
 
         .question-number {
@@ -67,11 +66,11 @@
         }
 
         .question-text {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 52px; /* Increased font-size */
+            font-weight: 700; /* Increased font-weight */
             line-height: 1.4;
-            margin-bottom: 30px;
-            min-height: 120px;
+            margin-bottom: 50px; /* Increased margin */
+            min-height: 300px; /* Increased min-height */
             text-align: center;
             opacity: 1;
             transform: translateY(0);
@@ -86,7 +85,7 @@
         .cursor {
             display: inline-block;
             background-color: #ffff00;
-            width: 2px;
+            width: 4px; /* Increased width */
             height: 1.2em;
             animation: blink 1s infinite;
         }
@@ -99,8 +98,8 @@
         .options-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 20px; /* Increased gap */
+            margin-bottom: 40px; /* Increased margin */
             opacity: 1;
             transform: translateY(0);
             transition: all 0.5s ease;
@@ -113,10 +112,10 @@
 
         .option {
             background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 15px 20px;
-            font-size: 16px;
+            border: 3px solid rgba(255, 255, 255, 0.2); /* Increased border */
+            border-radius: 20px; /* Increased border-radius */
+            padding: 25px 30px; /* Increased padding */
+            font-size: 28px; /* Increased font-size */
             font-weight: 700;
             opacity: 0;
             transform: translateX(-20px);
@@ -146,7 +145,7 @@
         .explanation {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 20px;
+            padding: 40px; /* Increased padding */
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.5s ease;
@@ -156,7 +155,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) translateY(20px);
-            width: calc(100% - 60px);
+            width: calc(100% - 80px); /* Adjusted width */
             text-align: center;
         }
 
@@ -168,12 +167,12 @@
         .explanation-title {
             color: #ffff00;
             font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 15px;
+            font-size: 32px; /* Increased font-size */
+            margin-bottom: 25px; /* Increased margin */
         }
 
         .explanation-text {
-            font-size: 14px;
+            font-size: 24px; /* Increased font-size */
             line-height: 1.5;
             color: #ffffff;
         }
@@ -181,11 +180,11 @@
         .progress-bar {
             position: absolute;
             top: 20px;
-            left: 30px;
-            right: 30px;
-            height: 4px;
+            left: 40px;
+            right: 40px;
+            height: 6px; /* Increased height */
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
+            border-radius: 3px;
             overflow: hidden;
             opacity: 1;
             transition: all 0.5s ease;
