@@ -1,0 +1,23 @@
+[
+    {
+      "subject": "LGCSE BIOLOGY",
+      "question": "Translocation occurs in phloem tubes. Aphids feed on the contents of phloem tubes. What type of food would be lacking in their diet?",
+      "options": ["amino acid", "fat", "sucrose", "water"],
+      "correct": "B",
+      "explanation": "Phloem tubes transport sugars (mainly sucrose), amino acids, and water throughout the plant. However, fats are not transported through phloem - they are stored in seeds and specialized tissues. Aphids feeding on phloem sap would lack fats in their diet."
+    },
+    {
+      "subject": "LGCSE BIOLOGY",
+      "question": "Which process is responsible for the movement of water up through a plant?",
+      "options": ["transpiration", "photosynthesis", "respiration", "translocation"],
+      "correct": "A",
+      "explanation": "Transpiration is the process by which water evaporates from the leaves, creating a suction force that pulls water up through the xylem vessels from the roots to the leaves."
+    },
+    {
+      "subject": "LGCSE BIOLOGY",
+      "question": "What is the main function of chlorophyll in photosynthesis?",
+      "options": ["produce oxygen", "absorb light energy", "store glucose", "transport water"],
+      "correct": "B",
+      "explanation": "Chlorophyll is the green pigment that absorbs light energy from the sun, which is then used to convert carbon dioxide and water into glucose during photosynthesis."
+    }
+  ]

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology Question - Translocation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #006600;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 350px;
+            height: 620px;
+            background: #006600;
+            border-radius: 20px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 255, 0, 0.3);
+        }
+
+        .question-header {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+
+        .question-header.hide {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .subject-badge {
+            background: #ffff00;
+            color: #000000;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .question-number {
+            color: #ffff00;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .question-text {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            min-height: 120px;
+            text-align: center;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+
+        .question-text.hide {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .cursor {
+            display: inline-block;
+            background-color: #ffff00;
+            width: 2px;
+            height: 1.2em;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+
+        .options-container.hide {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .option.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .option.correct {
+            background: #ffff00 !important;
+            color: #000000 !important;
+            border-color: #ffff00 !important;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+        }
+
+        .option.incorrect {
+            background: rgba(255, 255, 255, 0.05) !important;
+            color: rgba(255, 255, 255, 0.5) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .explanation {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 0, 0.3);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateY(20px);
+            width: calc(100% - 60px);
+            text-align: center;
+        }
+
+        .explanation.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) translateY(0);
+        }
+
+        .explanation-title {
+            color: #ffff00;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .explanation-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ffffff;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            right: 30px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            opacity: 1;
+            transition: all 0.5s ease;
+        }
+
+        .progress-bar.hide {
+            opacity: 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #ffff00;
+            width: 0%;
+            transition: width 8s ease;
+        }
+
+        .quiz-content {
+            opacity: 1;
+            transition: all 0.5s ease;
+        }
+
+        .quiz-content.hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-fill"></div>
+        </div>
+        
+        <div class="quiz-content" id="quizContent">
+            <div class="question-header" id="questionHeader">
+                <div class="subject-badge">LGCSE BIOLOGY</div>
+            </div>
+
+            <div class="question-text" id="questionText"></div>
+
+            <div class="options-container" id="optionsContainer">
+                <div class="option" data-answer="A">A) amino acid</div>
+                <div class="option" data-answer="B">B) fat</div>
+                <div class="option" data-answer="C">C) sucrose</div>
+                <div class="option" data-answer="D">D) water</div>
+            </div>
+        </div>
+
+        <div class="explanation" id="explanation">
+            <div class="explanation-title">Correct Answer: B) fat</div>
+            <div class="explanation-text">
+                Phloem tubes transport sugars (mainly sucrose), amino acids, and water throughout the plant. However, fats are not transported through phloem - they are stored in seeds and specialized tissues. Aphids feeding on phloem sap would lack fats in their diet.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questionText = "Translocation occurs in phloem tubes. Aphids feed on the contents of phloem tubes. What type of food would be lacking in their diet?";
+        const correctAnswer = "B";
+        
+        let currentChar = 0;
+        const questionElement = document.getElementById('questionText');
+        const options = document.querySelectorAll('.option');
+        const explanation = document.getElementById('explanation');
+        const progressFill = document.querySelector('.progress-fill');
+        const progressBar = document.getElementById('progressBar');
+        const quizContent = document.getElementById('quizContent');
+
+        // Start progress bar
+        setTimeout(() => {
+            progressFill.style.width = '100%';
+        }, 100);
+
+        function typeQuestion() {
+            if (currentChar < questionText.length) {
+                questionElement.innerHTML = questionText.substring(0, currentChar + 1) + '<span class="cursor"></span>';
+                currentChar++;
+                setTimeout(typeQuestion, 80);
+            } else {
+                questionElement.innerHTML = questionText;
+                showOptions();
+            }
+        }
+
+        function showOptions() {
+            options.forEach((option, index) => {
+                setTimeout(() => {
+                    option.classList.add('show');
+                }, index * 500 + 800);
+            });
+            
+            setTimeout(revealAnswer, 5000);
+        }
+
+        function revealAnswer() {
+            options.forEach(option => {
+                if (option.dataset.answer === correctAnswer) {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            setTimeout(() => {
+                // Hide all quiz content
+                quizContent.classList.add('hide');
+                progressBar.classList.add('hide');
+                
+                // Show explanation after transition
+                setTimeout(() => {
+                    explanation.classList.add('show');
+                }, 800);
+            }, 3000);
+        }
+
+        // Start the sequence
+        setTimeout(typeQuestion, 1500);
+    </script>
+</body>
+</html>
